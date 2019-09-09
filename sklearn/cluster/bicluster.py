@@ -1,9 +1,7 @@
-"""Spectral biclustering algorithms.
+"""Spectral biclustering algorithms."""
+# Authors : Kemal Eren
+# License: BSD 3 clause
 
-Authors : Kemal Eren
-License: BSD 3 clause
-
-"""
 from abc import ABCMeta, abstractmethod
 
 import numpy as np
@@ -343,7 +341,7 @@ class SpectralBiclustering(BaseSpectral):
     svd_method : string, optional, default: 'randomized'
         Selects the algorithm for finding singular vectors. May be
         'randomized' or 'arpack'. If 'randomized', uses
-        `sklearn.utils.extmath.randomized_svd`, which may be faster
+        :func:`~sklearn.utils.extmath.randomized_svd`, which may be faster
         for large matrices. If 'arpack', uses
         `scipy.sparse.linalg.svds`, which is more accurate, but
         possibly slower in some cases.

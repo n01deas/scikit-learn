@@ -124,7 +124,7 @@ class BaseSGD(SparseCoefMixin, BaseEstimator, metaclass=ABCMeta):
         if self.n_iter_no_change < 1:
             raise ValueError("n_iter_no_change must be >= 1")
         if not (0.0 < self.validation_fraction < 1.0):
-            raise ValueError("validation_fraction must be in ]0, 1[")
+            raise ValueError("validation_fraction must be in range (0, 1)")
         if self.learning_rate in ("constant", "invscaling", "adaptive"):
             if self.eta0 <= 0.0:
                 raise ValueError("eta0 must be > 0")
@@ -762,7 +762,7 @@ class SGDClassifier(BaseSGDClassifier):
     max_iter : int, optional (default=1000)
         The maximum number of passes over the training data (aka epochs).
         It only impacts the behavior in the ``fit`` method, and not the
-        `partial_fit`.
+        :meth:`partial_fit` method.
 
         .. versionadded:: 0.19
 
@@ -1374,7 +1374,7 @@ class SGDRegressor(BaseSGDRegressor):
     max_iter : int, optional (default=1000)
         The maximum number of passes over the training data (aka epochs).
         It only impacts the behavior in the ``fit`` method, and not the
-        `partial_fit`.
+        :meth:`partial_fit` method.
 
         .. versionadded:: 0.19
 
